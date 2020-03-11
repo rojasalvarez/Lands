@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Lands.Views.LoginPage"
+             BindingContext="{Binding Main,Source={StaticResource Locator}}"
+             Title="Ingreso"
+             >
+    
+    <ContentPage.Content>
+        <ScrollView
+            BindingContext="{Binding Login}">
+            <StackLayout
+                Padding="5">
+
+                <Image                
+                    Source="peri"
+                    WidthRequest="100">
+                </Image>
+
+                <Grid
+                    Margin="10,0"
+                    VerticalOptions="CenterAndExpand">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="2*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <Label  
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Text="Email:"
+                        VerticalOptions="Center">
+                    </Label>
+
+                    <Entry
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        Keyboard="Email"
+                        Text="{Binding Email,Mode=TwoWay}"
+                        Placeholder="Ingrese su Email">
+                    </Entry>
+
+                    <Label        
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        Text="Password:"                        
+                        VerticalOptions="Center">
+                    </Label>
+
+                    <Entry
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        IsPassword="True"
+                        Text="{Binding Password,Mode=TwoWay}"
+                        Placeholder="Ingrese su Password">
+                    </Entry>
+                </Grid>
+
+                <ActivityIndicator
+                    IsRunning="{Binding IsRunning,Mode=TwoWay}"
+                    VerticalOptions="CenterAndExpand">
+                </ActivityIndicator>
+                
+                <StackLayout
+                    Margin="10,0"
+                    Orientation="Horizontal"
+                    VerticalOptions="CenterAndExpand">
+                    <Label
+                       HorizontalOptions="StartAndExpand"
+                        Text="Recordarme en este Dispositivo"
+                     VerticalOptions="Center">
+                    </Label>
+
+                    <Switch
+                        IsToggled="{Binding IsRemenbered,Mode=TwoWay}"
+                        HorizontalOptions="End">
+                    </Switch>
+                </StackLayout>
+
+                <Label
+                    HorizontalOptions="Center"
+                    TextColor="Blue"
+                    Text="Forgot youy password?"
+                    VerticalOptions="CenterAndExpand">
+                </Label>
+
+                <StackLayout
+                    Orientation="Horizontal"                    
+                    Margin="40,0"
+                    VerticalOptions="CenterAndExpand">
+                    <Button
+                        BackgroundColor="Navy"
+                        BorderRadius="23"
+                        Command="{Binding IngresarCommand}"
+                        HeightRequest="46"
+                        HorizontalOptions="FillAndExpand"
+                        IsEnabled="{Binding IsEnabled,Mode=TwoWay}"
+                        Text="Ingresar"
+                        TextColor="White">
+                    </Button>
+
+                    <Button
+                        BackgroundColor="Green"
+                        BorderRadius="23"
+                        HeightRequest="46"
+                        HorizontalOptions="FillAndExpand"
+                        IsEnabled="{Binding IsEnabled,Mode=TwoWay}"
+                        Text="Registrar"
+                        TextColor="White">
+                    </Button>
+                </StackLayout>
+
+                <StackLayout
+                 Orientation="Horizontal"
+                    HorizontalOptions="Center"
+                    VerticalOptions="EndAndExpand">
+                    <Image
+                        WidthRequest="50"
+                        Source="face_logo">
+                    </Image>
+                    <Image
+                        WidthRequest="50"
+                        Source="Twitter">
+                    </Image>
+                    <Image
+                        WidthRequest="70"
+                        Source="Instagram">
+                    </Image>
+                </StackLayout>
+
+            </StackLayout>
+        </ScrollView>
+                
+    </ContentPage.Content>
+</ContentPage>
